@@ -6,6 +6,9 @@
         android: 'https://play.google.com/store/apps/details?id=your.package.name'
     };
 
+    // Contact email
+    const CONTACT_EMAIL = 'cultivanetwork@outlook.com';
+
     // Enhanced device detection
     function detectDevice() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -36,6 +39,70 @@
         return (('ontouchstart' in window) ||
                 (navigator.maxTouchPoints > 0) ||
                 (navigator.msMaxTouchPoints > 0));
+    }
+
+    // Contact button functionality
+    function setupContactButton() {
+        const contactBtn = document.getElementById('contactBtn');
+        
+        if (contactBtn) {
+            console.log('Contact button found, setting up event listener');
+            
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('Contact button clicked');
+                
+                // Create mailto link
+                const subject = encodeURIComponent('CultivaNetwork - Contact Inquiry');
+                const body = encodeURIComponent('Hello CultivaNetwork team,\n\nI would like to get in touch regarding...\n\nBest regards');
+                const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+                
+                console.log('Opening mailto link:', mailtoLink);
+                
+                // Try to open email client
+                try {
+                    // Use window.open for better compatibility
+                    const emailWindow = window.open(mailtoLink, '_self');
+                    
+                    // Fallback after a short delay if window.open doesn't work
+                    setTimeout(() => {
+                        if (navigator.clipboard && window.isSecureContext) {
+                            navigator.clipboard.writeText(CONTACT_EMAIL).then(() => {
+                                alert(`Email client not available. Email address copied to clipboard: ${CONTACT_EMAIL}`);
+                            }).catch(() => {
+                                alert(`Please contact us at: ${CONTACT_EMAIL}`);
+                            });
+                        } else {
+                            // Manual fallback for older browsers
+                            const textArea = document.createElement('textarea');
+                            textArea.value = CONTACT_EMAIL;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            try {
+                                document.execCommand('copy');
+                                alert(`Email address copied to clipboard: ${CONTACT_EMAIL}`);
+                            } catch (err) {
+                                alert(`Please contact us at: ${CONTACT_EMAIL}`);
+                            }
+                            document.body.removeChild(textArea);
+                        }
+                    }, 1000);
+                    
+                } catch (error) {
+                    console.error('Error opening email client:', error);
+                    alert(`Please contact us at: ${CONTACT_EMAIL}`);
+                }
+            });
+            
+            // Add additional debugging
+            contactBtn.addEventListener('mouseenter', function() {
+                console.log('Contact button hover detected');
+            });
+        } else {
+            console.error('Contact button not found');
+        }
     }
 
     // Update UI based on device
@@ -91,6 +158,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const device = detectDevice();
         updateUI(device);
+        setupContactButton();
         
         // Log device info for debugging
         console.log(`Detected device: ${device}`);
