@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - CultivaNetwork</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #808080;
+            --border: #1a1a1a;
+            --accent: #ffffff;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            padding: 2rem;
+            background: var(--bg-primary);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .page-title {
+            font-family: 'Arvo', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .policy-content {
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section h2 {
+            font-family: 'Arvo', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .policy-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .policy-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+
+        .policy-section ul {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.875rem !important;
+        }
+
+        .intro-text {
+            font-size: 1rem !important;
+            color: var(--text-primary) !important;
+            font-weight: 500;
+        }
+
+        .subsection {
+            margin-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rights-note {
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover,
+        .footer-link.active {
+            color: var(--text-primary);
+        }
+
+        .footer-separator {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .copyright {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .policy-content {
+                padding: 0 1rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.25rem;
+            }
+            
+            .policy-section h3 {
+                font-size: 1rem;
+            }
+            
+            .subsection {
+                margin-left: 0.5rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .footer-separator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .page-header {
+                margin-bottom: 2rem;
+            }
+            
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .policy-section {
+                margin-bottom: 2rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.125rem;
+            }
+            
+            .contact-info {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Header with back button -->
+            <div class="page-header">
+                <a href="javascript:history.back()" class="back-btn">
+                    <svg class="back-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Back to Home
+                </a>
+                <h1 class="page-title">Privacy Policy</h1>
+            </div>
+            
+            <!-- Privacy Policy Content -->
+            <div class="policy-content">
+                <div class="policy-section">
+                    <p class="last-updated"><strong>Last Updated:</strong> October 24, 2024</p>
+                </div>
+
+                <div class="policy-section">
+                    <p class="intro-text">
+                        At CultivaNetwork, we respect your privacy and are committed to protecting your personal information. 
+                        This Privacy Policy explains how we collect, use, and safeguard your data when you use our mobile application and services.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Information We Collect</h2>
+                    <div class="subsection">
+                        <h3>Account Information</h3>
+                        <ul>
+                            <li>Email address for account creation and authentication</li>
+                            <li>Display name and profile photo (optional)</li>
+                            <li>User preferences and settings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Usage Analytics</h3>
+                        <ul>
+                            <li>App performance metrics and crash reports</li>
+                            <li>User interactions and feature usage patterns</li>
+                            <li>Session duration and frequency of use</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>User-Generated Content</h3>
+                        <ul>
+                            <li>Posts, comments, and other content you create</li>
+                            <li>Follower relationships and social connections</li>
+                            <li>Analytics dashboard data and insights</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Location Data</h3>
+                        <ul>
+                            <li>Address information when using location-based features</li>
+                            <li>General location data for content personalization (when permitted)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Device Information</h3>
+                        <ul>
+                            <li>Device identifiers and technical specifications</li>
+                            <li>Operating system version and app version</li>
+                            <li>Network information and IP address</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>How We Use Your Information</h2>
+                    <ul>
+                        <li><strong>Authentication:</strong> Provide secure user authentication and account management</li>
+                        <li><strong>Social Features:</strong> Enable following, comments, and analytics dashboard functionality</li>
+                        <li><strong>Performance:</strong> Improve app performance through usage analytics and crash reporting</li>
+                        <li><strong>Location Services:</strong> Provide location-based address services when requested</li>
+                        <li><strong>Security:</strong> Ensure app security, prevent fraud, and protect user accounts</li>
+                        <li><strong>Communication:</strong> Send important updates and respond to user inquiries</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Data Storage and Security</h2>
+                    <ul>
+                        <li>All data is stored securely using Firebase (Google Cloud Platform)</li>
+                        <li>Data is encrypted in transit using HTTPS/TLS protocols</li>
+                        <li>Data is encrypted at rest using industry-standard encryption</li>
+                        <li>We implement Firebase Security Rules to protect your data from unauthorized access</li>
+                        <li>Regular security audits and updates are performed to maintain data protection</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Third-Party Services</h2>
+                    <div class="subsection">
+                        <h3>Firebase (Google)</h3>
+                        <ul>
+                            <li>Authentication and user management</li>
+                            <li>Cloud database and file storage</li>
+                            <li>Analytics and performance monitoring</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Google Maps</h3>
+                        <ul>
+                            <li>Location services and address lookup</li>
+                            <li>Map display and navigation features</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Expo Platform</h3>
+                        <ul>
+                            <li>Development platform services</li>
+                            <li>App updates and deployment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Data Sharing</h2>
+                    <ul>
+                        <li><strong>No Sale of Data:</strong> We do not sell your personal information to third parties</li>
+                        <li><strong>Service Providers:</strong> Data may be shared with Firebase/Google as necessary for app functionality</li>
+                        <li><strong>Aggregated Data:</strong> We may share aggregated, non-personal analytics data for research purposes</li>
+                        <li><strong>Legal Requirements:</strong> We may disclose information if required by law or to protect our rights</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Data Retention</h2>
+                    <ul>
+                        <li><strong>Account Data:</strong> Retained until you delete your account or request deletion</li>
+                        <li><strong>Analytics Data:</strong> Retained for 26 months (Google Analytics standard retention period)</li>
+                        <li><strong>User Content:</strong> Retained until you delete it or your account is deleted</li>
+                        <li><strong>Backup Data:</strong> May be retained for up to 90 days for disaster recovery purposes</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Your Rights</h2>
+                    <ul>
+                        <li><strong>Access:</strong> Request access to your personal data</li>
+                        <li><strong>Deletion:</strong> Delete your account and associated data at any time</li>
+                        <li><strong>Correction:</strong> Correct inaccurate or incomplete information</li>
+                        <li><strong>Opt-Out:</strong> Opt out of analytics collection and marketing communications</li>
+                        <li><strong>Data Portability:</strong> Request a copy of your data in a portable format</li>
+                    </ul>
+                    <p class="rights-note">
+                        To exercise these rights, please contact us using the information provided below.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Children's Privacy</h2>
+                    <p>
+                        Our app is not intended for children under 13 years of age. We do not knowingly collect 
+                        personal information from children under 13. If you are a parent or guardian and believe 
+                        your child has provided us with personal information, please contact us immediately.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Changes to This Policy</h2>
+                    <p>
+                        We may update this Privacy Policy from time to time. We will notify you of any material 
+                        changes by posting the new Privacy Policy on this page and updating the "Last Updated" 
+                        date. We encourage you to review this Privacy Policy periodically.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> cultivanetwork@outlook.com</p>
+                        <p><strong>Response Time:</strong> We typically respond within 48 hours</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Governing Law</h2>
+                    <p>
+                        This Privacy Policy is governed by and construed in accordance with the laws of the 
+                        jurisdiction where CultivaNetwork operates. Any disputes arising from this policy 
+                        will be resolved in the appropriate courts of that jurisdiction.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-links">
+                    <a href="#" class="footer-link active">Privacy Policy</a>
+                    <span class="footer-separator">•</span>
+                    <a href="terms-of-service-standalone.html" class="footer-link">Terms of Service</a>
+                </div>
+                <p class="copyright">© 2024 CultivaNetwork. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

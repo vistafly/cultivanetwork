@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - CultivaNetwork</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #808080;
+            --border: #1a1a1a;
+            --accent: #ffffff;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            padding: 2rem;
+            background: var(--bg-primary);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .back-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .page-title {
+            font-family: 'Arvo', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .policy-content {
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section h2 {
+            font-family: 'Arvo', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .policy-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .policy-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+
+        .policy-section ul {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.875rem !important;
+        }
+
+        .intro-text {
+            font-size: 1rem !important;
+            color: var(--text-primary) !important;
+            font-weight: 500;
+        }
+
+        .subsection {
+            margin-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rights-note {
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover,
+        .footer-link.active {
+            color: var(--text-primary);
+        }
+
+        .footer-separator {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .copyright {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .policy-content {
+                padding: 0 1rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.25rem;
+            }
+            
+            .policy-section h3 {
+                font-size: 1rem;
+            }
+            
+            .subsection {
+                margin-left: 0.5rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .footer-separator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .page-header {
+                margin-bottom: 2rem;
+            }
+            
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .policy-section {
+                margin-bottom: 2rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.125rem;
+            }
+            
+            .contact-info {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Header with back button -->
+            <div class="page-header">
+                <a href="javascript:history.back()" class="back-btn">
+                    <svg class="back-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.42-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Back to Home
+                </a>
+                <h1 class="page-title">Terms of Service</h1>
+            </div>
+            
+            <!-- Terms of Service Content -->
+            <div class="policy-content">
+                <div class="policy-section">
+                    <p class="last-updated"><strong>Last Updated:</strong> October 24, 2024</p>
+                </div>
+
+                <div class="policy-section">
+                    <p class="intro-text">
+                        Welcome to CultivaNetwork. These Terms of Service ("Terms") govern your use of our mobile 
+                        application and services. By using CultivaNetwork, you agree to be bound by these Terms.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Acceptance of Terms</h2>
+                    <p>
+                        By downloading, installing, or using the CultivaNetwork app, you acknowledge that you have 
+                        read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, 
+                        please do not use our services.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Description of Service</h2>
+                    <p>
+                        CultivaNetwork is a social networking platform that allows users to connect, share content, 
+                        follow other users, and access analytics about their social media presence. Our services include:
+                    </p>
+                    <ul>
+                        <li>User profiles and account management</li>
+                        <li>Content creation and sharing features</li>
+                        <li>Social connections and following capabilities</li>
+                        <li>Analytics dashboard and insights</li>
+                        <li>Location-based features and services</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>User Accounts</h2>
+                    <div class="subsection">
+                        <h3>Account Creation</h3>
+                        <ul>
+                            <li>You must provide accurate and complete information when creating an account</li>
+                            <li>You are responsible for maintaining the security of your account credentials</li>
+                            <li>You must be at least 13 years old to create an account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Account Responsibility</h3>
+                        <ul>
+                            <li>You are solely responsible for all activities that occur under your account</li>
+                            <li>You must notify us immediately of any unauthorized use of your account</li>
+                            <li>We are not liable for any loss or damage arising from unauthorized account access</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>User Content and Conduct</h2>
+                    <div class="subsection">
+                        <h3>Content Guidelines</h3>
+                        <p>You agree not to post content that:</p>
+                        <ul>
+                            <li>Is illegal, harmful, threatening, abusive, or defamatory</li>
+                            <li>Infringes on intellectual property rights of others</li>
+                            <li>Contains spam, advertisements, or promotional material</li>
+                            <li>Is sexually explicit or contains inappropriate material</li>
+                            <li>Promotes violence, discrimination, or illegal activities</li>
+                            <li>Contains malware, viruses, or malicious code</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Content Rights</h3>
+                        <ul>
+                            <li>You retain ownership of content you create and post</li>
+                            <li>You grant us a license to use, display, and distribute your content within the app</li>
+                            <li>You represent that you have the right to post all content you submit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Prohibited Uses</h2>
+                    <p>You may not use CultivaNetwork to:</p>
+                    <ul>
+                        <li>Violate any applicable laws or regulations</li>
+                        <li>Impersonate others or create fake accounts</li>
+                        <li>Harass, bully, or threaten other users</li>
+                        <li>Attempt to gain unauthorized access to our systems</li>
+                        <li>Reverse engineer or modify the app</li>
+                        <li>Use automated tools to access or interact with the service</li>
+                        <li>Collect user data without permission</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Privacy and Data Protection</h2>
+                    <p>
+                        Your privacy is important to us. Our collection, use, and protection of your personal 
+                        information is governed by our Privacy Policy, which is incorporated into these Terms 
+                        by reference. Please review our Privacy Policy to understand our data practices.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Intellectual Property</h2>
+                    <div class="subsection">
+                        <h3>Our Rights</h3>
+                        <ul>
+                            <li>CultivaNetwork and all related trademarks are our property</li>
+                            <li>The app design, features, and functionality are protected by copyright</li>
+                            <li>You may not use our intellectual property without permission</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Respect for Others' Rights</h3>
+                        <ul>
+                            <li>We respect intellectual property rights of others</li>
+                            <li>We will respond to valid copyright infringement notices</li>
+                            <li>Users who repeatedly infringe may have their accounts terminated</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Service Availability</h2>
+                    <ul>
+                        <li>We strive to maintain service availability but cannot guarantee 100% uptime</li>
+                        <li>We may temporarily suspend service for maintenance or updates</li>
+                        <li>We reserve the right to modify or discontinue features with notice</li>
+                        <li>We are not liable for service interruptions or technical issues</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Account Termination</h2>
+                    <div class="subsection">
+                        <h3>Your Right to Terminate</h3>
+                        <ul>
+                            <li>You may delete your account at any time through the app settings</li>
+                            <li>Upon termination, your data will be deleted according to our Privacy Policy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Our Right to Terminate</h3>
+                        <ul>
+                            <li>We may suspend or terminate accounts that violate these Terms</li>
+                            <li>We may terminate accounts for illegal activity or harmful behavior</li>
+                            <li>We will provide notice when reasonably possible</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Disclaimers and Limitations</h2>
+                    <div class="subsection">
+                        <h3>Service Disclaimers</h3>
+                        <ul>
+                            <li>The service is provided "as is" without warranties of any kind</li>
+                            <li>We do not guarantee the accuracy of user-generated content</li>
+                            <li>We are not responsible for interactions between users</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>Limitation of Liability</h3>
+                        <ul>
+                            <li>Our liability is limited to the maximum extent permitted by law</li>
+                            <li>We are not liable for indirect, incidental, or consequential damages</li>
+                            <li>Our total liability shall not exceed the amount you paid for the service</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Indemnification</h2>
+                    <p>
+                        You agree to indemnify and hold harmless CultivaNetwork, its officers, directors, employees, 
+                        and agents from any claims, damages, or expenses arising from your use of the service, 
+                        violation of these Terms, or infringement of any rights of another party.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Changes to Terms</h2>
+                    <p>
+                        We may modify these Terms at any time. We will provide notice of material changes by 
+                        posting updated Terms in the app or sending notifications. Your continued use of the 
+                        service after changes constitutes acceptance of the new Terms.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Governing Law and Disputes</h2>
+                    <ul>
+                        <li>These Terms are governed by applicable local laws</li>
+                        <li>Disputes will be resolved through binding arbitration when possible</li>
+                        <li>You waive the right to participate in class action lawsuits</li>
+                        <li>Any legal proceedings must be brought in the appropriate jurisdiction</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Contact Information</h2>
+                    <p>If you have questions about these Terms of Service, please contact us:</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> cultivanetwork@outlook.com</p>
+                        <p><strong>Response Time:</strong> We typically respond within 48 hours</p>
+                    </div>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Severability</h2>
+                    <p>
+                        If any provision of these Terms is found to be unenforceable, the remaining provisions 
+                        will remain in full force and effect. The unenforceable provision will be replaced 
+                        with an enforceable provision that best reflects the original intent.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-links">
+                    <a href="privacy-policy-standalone.html" class="footer-link">Privacy Policy</a>
+                    <span class="footer-separator">•</span>
+                    <a href="#" class="footer-link active">Terms of Service</a>
+                </div>
+                <p class="copyright">© 2024 CultivaNetwork. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
