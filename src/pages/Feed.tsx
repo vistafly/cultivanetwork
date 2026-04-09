@@ -118,13 +118,13 @@ function PostCard({ post, currentUserId }: { post: Post; currentUserId: string }
             <video
               src={post.mediaUrl || post.mediaUrls?.[0]}
               controls
-              className="w-full max-h-[500px] object-contain bg-black"
+              className="w-full max-h-125 object-contain bg-black"
             />
           ) : (
             <img
               src={post.mediaUrl || post.mediaUrls?.[0]}
               alt="Post media"
-              className="w-full max-h-[500px] object-contain"
+              className="w-full max-h-125 object-contain"
               loading="lazy"
             />
           )}

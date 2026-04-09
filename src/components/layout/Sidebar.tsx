@@ -4,6 +4,7 @@ import {
   IoCompassOutline,
   IoGridOutline,
   IoHomeOutline,
+  IoLogoApple,
   IoLogOutOutline,
   IoPersonOutline,
   IoSettingsOutline,
@@ -58,6 +59,22 @@ export default function Sidebar() {
           ))}
         </ul>
       </nav>
+
+      {/* Get the App */}
+      <div className="px-3 pb-2">
+        <a
+          href="https://apps.apple.com/us/app/cultivanetwork/id6754584976"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2.5 rounded-xl bg-black px-4 py-2.5 text-white transition hover:bg-gray-900"
+        >
+          <IoLogoApple size={20} />
+          <div>
+            <p className="text-[9px] font-medium text-gray-400 leading-tight">Download on the</p>
+            <p className="text-xs font-semibold leading-tight">App Store</p>
+          </div>
+        </a>
+      </div>
 
       {/* Profile + Settings */}
       <div className="border-t border-gray-200 p-3">

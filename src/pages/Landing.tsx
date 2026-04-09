@@ -1,5 +1,7 @@
-import { IoLeafOutline, IoPeopleOutline, IoCalendarOutline, IoStorefrontOutline } from 'react-icons/io5'
+import { IoLeafOutline, IoPeopleOutline, IoCalendarOutline, IoStorefrontOutline, IoLogoApple } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
+
+const APP_STORE_URL = 'https://apps.apple.com/us/app/cultivanetwork/id6754584976'
 
 const features = [
   {
@@ -80,6 +82,20 @@ export default function Landing() {
             Sign In
           </Link>
         </div>
+
+        {/* App Store Badge */}
+        <a
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 group flex items-center gap-3 rounded-2xl border border-gray-800 bg-gray-950 px-6 py-3.5 transition hover:border-gray-600 hover:bg-gray-900"
+        >
+          <IoLogoApple size={32} className="text-white" />
+          <div className="text-left">
+            <p className="text-[11px] font-medium text-gray-400 leading-tight">Download on the</p>
+            <p className="text-lg font-semibold text-white leading-tight">App Store</p>
+          </div>
+        </a>
       </section>
 
       {/* Features */}
@@ -95,6 +111,30 @@ export default function Landing() {
               <p className="text-sm text-gray-500">{feature.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Download CTA Banner */}
+      <section className="border-t border-gray-900 px-6 py-16 md:px-12">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="mb-3 text-2xl font-bold text-white md:text-3xl">
+            Take Cultiva everywhere
+          </h2>
+          <p className="mb-8 text-gray-400">
+            Get the full experience on your iPhone. Stay connected on the go.
+          </p>
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-2xl bg-white px-8 py-4 text-black shadow-lg transition hover:bg-gray-100 hover:shadow-xl hover:scale-105"
+          >
+            <IoLogoApple size={36} />
+            <div className="text-left">
+              <p className="text-xs font-medium text-gray-500 leading-tight">Download on the</p>
+              <p className="text-xl font-bold leading-tight">App Store</p>
+            </div>
+          </a>
         </div>
       </section>
 

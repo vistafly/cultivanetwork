@@ -91,7 +91,7 @@ export default function Profile() {
   return (
     <div>
       {/* Cover Photo */}
-      <div className="relative h-48 rounded-t-2xl bg-gradient-to-r from-primary/20 to-primary/5 md:h-56">
+      <div className="relative h-48 rounded-t-2xl bg-linear-to-r from-primary/20 to-primary/5 md:h-56">
         {profile.profileImages?.coverPhoto && (
           <img
             src={profile.profileImages.coverPhoto}
