@@ -9,7 +9,7 @@ import {
   IoGridOutline,
   IoCreateOutline,
 } from 'react-icons/io5'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import FirebaseService, { Post, UserProfile } from '../services/firebaseService'
 import followService from '../services/followService'
@@ -19,22 +19,34 @@ import LoadingSpinner from '../components/common/LoadingSpinner'
 export default function Profile() {
   const { id } = useParams<{ id: string }>()
   const { user, userProfile: myProfile } = useAuth()
+  const navigate = useNavigate()
   const [profile, setProfile] = useState<UserProfile | null>(null)
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
   const [followStatus, setFollowStatus] = useState<string>('none')
   const [followLoading, setFollowLoading] = useState(false)
 
-  const isOwnProfile = !id || id === user?.uid
+  const isOwnProfile = !!user && (!id || id === user.uid)
+  const isAuthenticated = !!user
 
   useEffect(() => {
     loadProfile()
   }, [id, user])
 
+  const redirectToSignIn = () => {
+    const returnTo = id ? `/profile/${id}` : '/'
+    navigate(`/signin?returnTo=${encodeURIComponent(returnTo)}`)
+  }
+
   const loadProfile = async () => {
     setLoading(true)
     try {
       const userId = isOwnProfile ? user!.uid : id!
+      if (!userId) {
+        setProfile(null)
+        setPosts([])
+        return
+      }
       const [profileData, userPosts] = await Promise.all([
         isOwnProfile ? Promise.resolve(myProfile) : FirebaseService.getUserProfile(userId),
         FirebaseService.getUserPosts(userId),
@@ -55,6 +67,10 @@ export default function Profile() {
   }
 
   const handleFollow = async () => {
+    if (!isAuthenticated) {
+      redirectToSignIn()
+      return
+    }
     if (!user || !id) return
     setFollowLoading(true)
     try {
@@ -69,6 +85,12 @@ export default function Profile() {
       if (__DEV__) console.error('Follow error:', err)
     } finally {
       setFollowLoading(false)
+    }
+  }
+
+  const handlePostClick = () => {
+    if (!isAuthenticated) {
+      redirectToSignIn()
     }
   }
 
@@ -225,7 +247,12 @@ export default function Profile() {
         ) : (
           <div className="grid grid-cols-3 gap-1 rounded-xl overflow-hidden">
             {posts.map((post) => (
-              <div key={post.id} className="aspect-square bg-gray-100">
+              <button
+                key={post.id}
+                type="button"
+                onClick={handlePostClick}
+                className="aspect-square bg-gray-100 transition hover:opacity-90"
+              >
                 {post.mediaUrl || post.mediaUrls?.[0] ? (
                   <img
                     src={post.mediaUrl || post.mediaUrls?.[0]}
@@ -238,7 +265,7 @@ export default function Profile() {
                     <p className="line-clamp-4 text-xs text-gray-500">{post.content}</p>
                   </div>
                 )}
-              </div>
+              </button>
             ))}
           </div>
         )}

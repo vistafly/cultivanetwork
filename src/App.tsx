@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import AuthGate from './components/auth/AuthGate'
 import AppShell from './components/layout/AppShell'
+import PublicOrPrivateShell from './components/layout/PublicOrPrivateShell'
 import { AuthProvider } from './contexts/AuthContext'
 import Admin from './pages/Admin'
 import Discover from './pages/Discover'
@@ -24,6 +25,11 @@ export default function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
 
+        {/* Public profile (viewable signed-out, interactions gated) */}
+        <Route element={<PublicOrPrivateShell />}>
+          <Route path="/profile/:id" element={<Profile />} />
+        </Route>
+
         {/* Protected routes */}
         <Route element={<AuthGate />}>
           <Route element={<AppShell />}>
@@ -34,7 +40,6 @@ export default function App() {
             <Route path="/messages" element={<Messages />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/edit" element={<ProfileEdit />} />
-            <Route path="/profile/:id" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/admin" element={<Admin />} />
           </Route>
